@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [promptInput, setPromptInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -13,33 +13,34 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+      body: JSON.stringify({ prompt: promptInput }),
     });
     const data = await response.json();
     setResult(data.result);
-    setAnimalInput("");
+    setPromptInput("");
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>Quantic Namegen</title>
+        <link rel="icon" href="/q.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/q.png" className />
+        <h3>Name Generator</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="prompt"
+            placeholder="Enter company name here."
+            value={promptInput}
+            onChange={(e) => setPromptInput(e.target.value)}
           />
           <input type="submit" value="Generate names" />
         </form>
+        <p>Enter an imaginary company/business/institution you want a fun name for.</p>
         <div className={styles.result}>{result}</div>
       </main>
     </div>
