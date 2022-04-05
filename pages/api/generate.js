@@ -23,7 +23,7 @@ Names: Chips Ahoy, Semisweet Semiconductors, Sweet CPUs
 Description: Gardening supply ecommerce store
 Company names: D'Vines, Miraculous Marigolds, Hoes and Hoses
 Description: A subscription-based video game rental service
-Company names: Playcation, Weekend Metaverse, Trade-a-World
+Company names: Playcation, Weekend Metaverse, Joyful Joysticks
 Description: ${capitalizedPrompt}
 Company names:`;
 }
