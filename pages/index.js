@@ -60,16 +60,12 @@ export default function Home() {
           <input
             type="text"
             name="prompt"
-            placeholder="Enter company name here."
+            placeholder="Enter description of a company here."
             value={promptInput}
             onChange={(e) => setPromptInput(e.target.value)}
           />
           <input type="submit" value="Generate names" />
         </form>
-        <p>
-          Enter an imaginary company/business/institution you want a fun name
-          for.
-        </p>
         <div className={styles.result} style={{ fontSize: "18pt" }}>
           {result}
         </div>
