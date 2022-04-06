@@ -12,24 +12,25 @@ export default async function (req, res) {
   });
   res.status(200).json({ result: completion.data.choices[0].text, tempResult: req.body.temp / 10});
 }
-function generatePrompt(prompt) {  return `Given a description of a company, write a name for it that includes a pun. Names should be no more than 3 words long.
+function generatePrompt(prompt) {  return `Given a description of a company, write a name for it that includes a pun.
 
-description: vehicle rental company
-company name: RV There Yet
-description: online store for dog toys
-company name: Don’t Stop Retrievin’
-description: music streaming company
-company name: TrebleMaker
-description: hyperspeed 3D printing company
-company name: 3D Sprinter
-description: pedestrian exploration company
-company name: PedEx
-description: small Eastern European airline
-company name: Flygoslavia
-description: app that allows private pool owners to rent their pools
-company name: Splash and Dash
-description: robot-powered lawn mower company
-company name: Blade Runners
-description: ${prompt}
-company name:`;
+
+Description: tandem bicycle company
+Name: Tandemonium, Two's Company Bicycles, TwoGather Bikes
+Description: medieval-themed festival for older adults
+Name: Middle Aged Faire, Ye Olde Folke Fest, Seniors Knight Out
+Description: manufacturer of boomerangs for space
+Name: SpaceBOOM, Return to Sender, Moon-a-rang
+Description: small eastern european airline
+Name: Flygoslavia, Taikoff Airlines, L'il Air
+Description: app that allows private pool owners to rent their pools
+Name: Splash and Dash, Aqua-Hire, AirBnBath
+Description: pedestrian excursion company
+Name: PedEx, Walkabout Adventures, Step in Time Tours
+Description: robotic lawn mowing service
+Name: MowBots, Robomow, LawnBots
+Description: thrift store for dogs
+Name: Wags to Riches, Secondhand Hounds, Ruff Stuff
+Description: ${prompt}
+Name:`;
 }
