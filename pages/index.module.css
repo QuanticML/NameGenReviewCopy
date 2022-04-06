@@ -19,6 +19,15 @@
   color: #353740;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
+.radio{
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+.radioContainer {
+  display: flex;
+  margin-bottom:2rem;
+  justify-content: space-between;
+}
 .main {
   display: flex;
   flex-direction: column;
