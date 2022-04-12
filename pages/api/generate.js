@@ -7,13 +7,16 @@ const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
   const completion = await openai.createCompletion("text-davinci-002", {
-    prompt: generatePrompt(req.body.prompt),
+    prompt: generatePrompt(req.body.prompt, req.body.type, req.body.isGuided),
     temperature: req.body.temp / 10,
     max_tokens: 300
   });
   res.status(200).json({ result: completion.data.choices[0].text, tempResult: req.body.temp / 10});
 }
-function generatePrompt(prompt) {  return `Given a description of a company, write a name for it that includes a pun.
+function generatePrompt(prompt, type, isGuided) {
+  let compiledPrompt = ""
+isGuided ? type === "company" ?
+  compiledPrompt = `Given a description of a company, write a name for it that includes a pun.
 
 
 Description: tandem bicycle company
@@ -33,5 +36,10 @@ Name: MowBots, Robomow, LawnBots
 Description: thrift store for dogs
 Name: Wags to Riches, Secondhand Hounds, Ruff Stuff
 Description: ${prompt}
-Name:`;
+Name:` : type === "scenario" ?   compiledPrompt = `Generate a wacky, funny story for an educational course, given the course's subject matter.
+
+ Subject matter: ${prompt}
+ Story:` : !IsGuided ? compiledPrompt = prompt : "" : ""
+
+  return compiledPrompt
 }
