@@ -47,7 +47,7 @@ export default function Home() {
           <div className="pb-12 flex self-center">
             <div className="flex pr-4 items-center">
               <input
-                className="px-4"
+                className="px-3"
                 type="radio"
                 id="companyName"
                 name="promptType"
