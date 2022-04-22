@@ -16,30 +16,26 @@ export default async function (req, res) {
 function generatePrompt(prompt, type, isGuided) {
   let compiledPrompt = ""
 isGuided ? type === "company" ?
-  compiledPrompt = `Given a description of a company, write a name for it that includes a pun.
+  compiledPrompt = `Given a description of a company, write three funny names for it that includes a pun.
 
 
 Description: tandem bicycle company
 Name: Tandemonium, Two's Company Bicycles, TwoGather Bikes
 Description: medieval-themed festival for older adults
 Name: Middle Aged Faire, Ye Olde Folke Fest, Seniors Knight Out
-Description: manufacturer of boomerangs for space
-Name: SpaceBOOM, Return to Sender, Moon-a-rang
-Description: small eastern european airline
-Name: Flygoslavia, Taikoff Airlines, L'il Air
 Description: app that allows private pool owners to rent their pools
 Name: Splash and Dash, Aqua-Hire, AirBnBath
-Description: pedestrian excursion company
-Name: PedEx, Walkabout Adventures, Step in Time Tours
-Description: robotic lawn mowing service
-Name: MowBots, Robomow, LawnBots
 Description: thrift store for dogs
 Name: Wags to Riches, Secondhand Hounds, Ruff Stuff
 Description: ${prompt}
-Name:` : type === "scenario" ?   compiledPrompt = `Generate a wacky, funny story for an educational course, given the course's subject matter.
+Name:` : type === "scenario" ?   compiledPrompt = `Below are the zany scenarios of a series of educational lessons, paired with their subject matter. In each example, the subject matter is paired with a fun, wacky scenario that students find entertaining.
 
+Subject matter: logistic regression
+Scenario: You're Clayton, a mushroom forager and founder of a foraged mushroom delivery service. You're looking to develop a machine learning model that can predict whether or not a mushroom is poisonous.
+Subject matter: mergers and acquisitions
+Scenario: You're Tabletop Games, a Dungeons and Dragons style RPG company looking to acquire smaller tabletop designers, Orcs R Us. In the process of offering and buying this company, you'll learn the basics of mergers and acquisitions.
  Subject matter: ${prompt}
- Story:` : !IsGuided ? compiledPrompt = prompt : "" : ""
+ Scenario:` : "" : ""
 
   return compiledPrompt
 }
